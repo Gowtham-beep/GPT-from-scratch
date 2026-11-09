@@ -1,0 +1,13 @@
+# PyTorch (CUDA enabled)
+torch
+torchvision
+torchaudio
+
+# Core utilities
+numpy
+tqdm
+matplotlib
+requests
+
+# Tokenization & text processing
+tiktoken
