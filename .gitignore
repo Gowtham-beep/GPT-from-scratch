@@ -63,3 +63,14 @@ wandb/
 # Large Datasets / Downloads
 data/
 datasets/
+tiny_shakespeare.txt
+input.txt
+*.parquet
+*.jsonl
+*.csv
+*.tsv
+*.h5
+*.hdf5
+*.arrow
+*.npy
+*.npz
