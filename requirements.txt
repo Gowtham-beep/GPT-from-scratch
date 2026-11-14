@@ -8,6 +8,7 @@ numpy
 tqdm
 matplotlib
 requests
+graphviz
 
 # Tokenization & text processing
 tiktoken
