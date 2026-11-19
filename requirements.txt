@@ -9,6 +9,7 @@ tqdm
 matplotlib
 requests
 graphviz
+ipykernel
 
 # Tokenization & text processing
 tiktoken
