@@ -1,5 +1,8 @@
 import random
-from engine import Value
+try:
+    from .engine import Value
+except ImportError:
+    from engine import Value
 
 class Module:
     def zero_grad(self):

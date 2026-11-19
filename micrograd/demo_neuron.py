@@ -1,3 +1,11 @@
+import os
+import sys
+
+# Ensure the module directory is in sys.path
+dir_path = os.path.dirname(os.path.abspath(__file__))
+if dir_path not in sys.path:
+    sys.path.insert(0, dir_path)
+
 from engine import Value
 from visualize import draw_dot
 
@@ -17,9 +25,10 @@ o = n.tanh(); o.label = 'o'
 # Run backpropagation
 o.backward()
 
-# Render and save to neuron_graph.svg (opens cleanly in any browser)
+# Render and save to neuron_graph.svg in the micrograd directory
 dot = draw_dot(o, format='svg')
-output_path = dot.render('neuron_graph', cleanup=True)
+output_base = os.path.join(dir_path, 'neuron_graph')
+output_path = dot.render(output_base, cleanup=True)
 
 print("=== Single Neuron Forward & Backward Pass ===")
 print(f"Output (o):       {o.data:.6f} | grad: {o.grad:.4f}")

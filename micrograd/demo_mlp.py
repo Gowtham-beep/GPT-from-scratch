@@ -1,3 +1,11 @@
+import os
+import sys
+
+# Ensure the module directory is in sys.path
+dir_path = os.path.dirname(os.path.abspath(__file__))
+if dir_path not in sys.path:
+    sys.path.insert(0, dir_path)
+
 from engine import Value
 from nn import MLP
 from visualize import draw_dot
@@ -15,10 +23,11 @@ for step in range(20):
     model.zero_grad()
     loss.backward()
 
-    # Save visual snapshots before updating weights
+    # Save visual snapshots before updating weights in the micrograd directory
     if step in (0, 19):
         dot = draw_dot(loss, format='svg')
-        saved_file = dot.render(f'train_step_{step}', cleanup=True)
+        output_base = os.path.join(dir_path, f'train_step_{step}')
+        saved_file = dot.render(output_base, cleanup=True)
         print(f"[Snapshot] Saved step {step} computation graph to: {saved_file}")
 
     for p in model.parameters():
